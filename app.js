@@ -19,13 +19,15 @@ app.use(cookieParser(process.env.JWT_SECRET));
 //imorting our routes.
 const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const productRouter = require('./routes/product');
 
 //created our port
 const PORT = process.env.PORT || 5000;
 
 // creating our routes
 app.use('/api/v1/users', userRouter);
-app.use('/api/v1/auth/', authRouter);
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/products', productRouter);
 
 app.use(errorHandlerMiddleware);
 app.use(notFound);
